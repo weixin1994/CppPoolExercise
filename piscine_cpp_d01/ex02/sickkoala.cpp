@@ -1,65 +1,53 @@
 #include <iostream>
 #include <string>
 #include <string.h>
-using namespace std;
+#include "sickkoala.h"
 
-class SickKoala
-{
-	public:
-		SickKoala(string name);
-		~SickKoala();
-		void poke();
-		bool takeDrug(string str);
-		void overDrive(string str);
-	private:
-		string name;
-};
-
-SickKoala::SickKoala(string namee)
+SickKoala::SickKoala(std::string namee)
 {
 	name = namee;
 }
 
 SickKoala::~SickKoala(void)
 {
-	cout << "Mr." << name << ": Kreooogg !! Je suis gueriiii !" << endl;
+	std::cout << "Mr." << name << ": Kreooogg !! Je suis gueriiii !" << std::endl;
 }
 
 void SickKoala::poke(void)
 {
-	cout << "Mr." << name << ": Gooeeeeerrk !! :’(" << endl;
+	std::cout << "Mr." << name << ": Gooeeeeerrk !! :’(" << std::endl;
 }
 
-bool SickKoala::takeDrug(string str)
+bool SickKoala::takeDrug(std::string str)
 {
-	string str_des1 = "mars";
-	string str_des2 = "Buronzand";
+	std::string str_des1 = "mars";
+	std::string str_des2 = "Buronzand";
 	
 	if(strcasecmp(str.c_str(), str_des1.c_str()) == 0)
 	{
-		cout << "Mr." << name << ": Mars, et ca kreog !" << endl;
+		std::cout << "Mr." << name << ": Mars, et ca kreog !" << std::endl;
 		return true;
 	}
 	else if(str.compare(str_des2) == 0)
 	{
-		cout << "Mr." << name << ": Et la fatigue a fait son temps !" << endl;
+		std::cout << "Mr." << name << ": Et la fatigue a fait son temps !" << std::endl;
 		return true;
 	}
 	else
 	{
-		cout << "Mr." << name << ": Goerkreog !" << endl;
+		std::cout << "Mr." << name << ": Goerkreog !" << std::endl;
 		return false;
 	}
 }
 
-void SickKoala::overDrive(string str)
+void SickKoala::overDrive(std::string str)
 {
-	string str_rep = "1337";
-	string str_des = "Kreog";
+	std::string str_rep = "1337";
+	std::string str_des = "Kreog";
 	int pos = 0;
-	string::size_type idx;
+	std::string::size_type idx;
 	idx=str.find(str_des);
-	if(idx != string::npos)
+	if(idx != std::string::npos)
 	{
 		for(int i = 0;i < str.length();i++)
 		{
@@ -71,12 +59,12 @@ void SickKoala::overDrive(string str)
 		}
 		str = str.replace(pos,5,str_rep);
 	}
-	cout << str << endl;
+	std::cout << str << std::endl;
 }
 
 int main()
 {
-	string str_test = "qwsdKreogfd";
+	std::string str_test = "qwsdKreogfd";
 	SickKoala sickKoala("SickKoala");
 	sickKoala.overDrive(str_test);
 	sickKoala.poke();
